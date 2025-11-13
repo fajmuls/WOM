@@ -1,0 +1,5 @@
+{
+  "name": "WorkOut Manager",
+  "description": "A personal workout tracker to log your daily exercises. It features an editable list of workouts and a configurable timer with sound alerts to keep your training on track.",
+  "requestFramePermissions": []
+}
