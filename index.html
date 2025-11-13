@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='200' height='200' fill='white'/%3e%3crect width='30' height='200' fill='%23D92F31'/%3e%3crect x='170' width='30' height='200' fill='%23D92F31'/%3e%3cpath d='M100 10L190 40V110L100 190L10 110V40L100 10Z' fill='white' stroke='black' stroke-width='5'/%3e%3cg transform='translate(50 30) scale(1)'%3e%3cpath d='M50 15C53.866 15 57 11.866 57 8C57 4.13401 53.866 1 50 1C46.134 1 43 4.13401 43 8C43 11.866 46.134 15 50 15ZM75 26C75 23.2386 72.7614 21 70 21H65V10C65 7.23858 62.7614 5 60 5H40C37.2386 5 35 7.23858 35 10V21H30C27.2386 21 25 23.2386 25 26V28.5C25 33.1556 27.6816 37.3396 31.8158 40.0619C35.95 42.7842 40 47.1556 40 52V83.5H50V53.5C50 49.3444 50 49.3444 50 49.3444C50 49.3444 50 49.3444 50 53.5V83.5H60V52C60 47.1556 64.05 42.7842 68.1842 40.0619C72.3184 37.3396 75 33.1556 75 28.5V26Z' fill='black'/%3e%3c/g%3e%3c/svg%3e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1db870">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3csvg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='200' height='200' fill='white'/%3e%3crect width='30' height='200' fill='%23D92F31'/%3e%3crect x='170' width='30' height='200' fill='%23D92F31'/%3e%3cpath d='M100 10L190 40V110L100 190L10 110V40L100 10Z' fill='white' stroke='black' stroke-width='5'/%3e%3cg transform='translate(50 30) scale(1)'%3e%3cpath d='M50 15C53.866 15 57 11.866 57 8C57 4.13401 53.866 1 50 1C46.134 1 43 4.13401 43 8C43 11.866 46.134 15 50 15ZM75 26C75 23.2386 72.7614 21 70 21H65V10C65 7.23858 62.7614 5 60 5H40C37.2386 5 35 7.23858 35 10V21H30C27.2386 21 25 23.2386 25 26V28.5C25 33.1556 27.6816 37.3396 31.8158 40.0619C35.95 42.7842 40 47.1556 40 52V83.5H50V53.5C50 49.3444 50 49.3444 50 49.3444C50 49.3444 50 49.3444 50 53.5V83.5H60V52C60 47.1556 64.05 42.7842 68.1842 40.0619C72.3184 37.3396 75 33.1556 75 28.5V26Z' fill='black'/%3e%3c/g%3e%3c/svg%3e">
+    <title>Workout Tracker & Timer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              'brand': {
+                '50': 'var(--color-brand-50)',
+                '100': 'var(--color-brand-100)',
+                '200': 'var(--color-brand-200)',
+                '300': 'var(--color-brand-300)',
+                '400': 'var(--color-brand-400)',
+                '500': 'var(--color-brand-500)',
+                '600': 'var(--color-brand-600)',
+                '700': 'var(--color-brand-700)',
+                '800': 'var(--color-brand-800)',
+                '900': 'var(--color-brand-900)',
+                '950': 'var(--color-brand-950)',
+              },
+              'surface': {
+                'base': 'var(--color-bg-base)',
+                'raised': 'var(--color-bg-raised)',
+                'inset': 'var(--color-bg-inset)',
+              },
+              'text': {
+                'base': 'var(--color-text-base)',
+                'muted': 'var(--color-text-muted)',
+                'subtle': 'var(--color-text-subtle)',
+              },
+              'border': 'var(--color-border)',
+            }
+          }
+        }
+      }
+    </script>
+   <script src="https://unpkg.com/i18next@23.11.5/i18next.js"></script>
+
+<style>
+    :root {
+        --color-bg-base: #0A0A0A;
+        --color-bg-raised: #1A1A1A;
+        --color-bg-inset: #2A2A2A;
+        --color-border: #3A3A3A;
+        --color-text-base: #F5F5F5;
+        --color-text-muted: #A3A3A3;
+        --color-text-subtle: #737373;
+        
+        --color-brand-50: #effef7;
+        --color-brand-100': '#d9fceb';
+        --color-brand-200': '#baf8d9';
+        --color-brand-300': '#88f2c2';
+        --color-brand-400': '#53e6a4';
+        --color-brand-500': '#2cd487';
+        --color-brand-600': '#1db870';
+        --color-brand-700': '#17915a';
+        --color-brand-800': '#157249';
+        --color-brand-900': '#135e3e';
+        --color-brand-950': '#083624';
+    }
+    body.light-theme {
+        --color-bg-base: #F5F5F5;
+        --color-bg-raised: #FFFFFF;
+        --color-bg-inset: #E5E5E5;
+        --color-border: #D4D4D4;
+        --color-text-base: #1A1A1A;
+        --color-text-muted: #737373;
+        --color-text-subtle: #A3A3A3;
+    }
+    body.faz-theme {
+        --color-bg-base: #0f172a; /* Slate 900 */
+        --color-bg-raised: #1e293b; /* Slate 800 */
+        --color-bg-inset: #020617; /* Slate 950 */
+        --color-border: #334155; /* Slate 700 */
+        --color-text-base: #f1f5f9; /* Slate 100 */
+        --color-text-muted: #94a3b8; /* Slate 400 */
+        --color-text-subtle: #64748b; /* Slate 500 */
+
+        --color-brand-50: #ecfeff;
+        --color-brand-100': '#cffafe';
+        --color-brand-200': '#a5f3fc';
+        --color-brand-300': '#67e8f9';
+        --color-brand-400': '#22d3ee';
+        --color-brand-500': '#06b6d4';
+        --color-brand-600': '#0891b2';
+        --color-brand-700': '#0e7490';
+        --color-brand-800': '#155e75';
+        --color-brand-900': '#164e63';
+        --color-brand-950': '#083344';
+
+        background: linear-gradient(-45deg, #0f172a, #083344, #1e293b, #0e7490);
+        background-size: 400% 400%;
+        animation: gradient-animation 18s ease infinite;
+    }
+     body.aritheme {
+        --color-bg-base: #1a1a2e;
+        --color-bg-raised: #2a2a4e;
+        --color-bg-inset: #161625;
+        --color-border: #4a4a6a;
+        --color-text-base: #e0f5f6;
+        --color-text-muted: #a2a2d4;
+        --color-text-subtle: #6b6b8e;
+
+        --color-brand-50: #fef1f5;
+        --color-brand-100': '#fee5ec;
+        --color-brand-200': '#fccfe0;
+        --color-brand-300': '#faa7c3;
+        --color-brand-400': '#f773a1;
+        --color-brand-500': '#f92572';
+        --color-brand-600': '#e01669;
+        --color-brand-700': '#c0105a';
+        --color-brand-800': '#9d104f;
+        --color-brand-900': '#821346;
+        --color-brand-950': '#480721;
+    }
+    body {
+        background-color: var(--color-bg-base);
+        color: var(--color-text-base);
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes fade-in-down {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+     @keyframes splash-fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes slide-in-left {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slide-in-right {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-fade-in {
+        animation: fade-in 0.5s ease-out forwards;
+    }
+    .animate-view-in {
+        animation: fade-in-down 0.4s ease-out forwards;
+    }
+</style>
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/WOM/assets/index-DsfNmLSN.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+</body>
+</html>
